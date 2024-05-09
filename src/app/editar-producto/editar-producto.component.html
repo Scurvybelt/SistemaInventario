@@ -1,0 +1,25 @@
+<div class = "container">
+    <div class = "container text-center" style="margin: 30px;">
+        <h3>Editar producto</h3>
+    </div>
+    
+    <form (ngSubmit) = "onSubmit()">
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripcion del Producto</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" required = "true" [(ngModel)] = "producto.descripcion"><!--Too way vinding-->
+        </div>
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" name = "precio" step="any" id="precio" [(ngModel)] ="producto.precio">
+        </div>
+        <div class="mb-3">
+            <label for="existencia" class="form-label">Existencia</label>
+            <input type="number" class="form-control" step="any" name = "existencia" id="existencia" [(ngModel)] = "producto.existencia">
+        </div>
+        <div class = "text-center">
+            <button type="submit" class="btn btn-warning btn-sm me-3">Editar</button>
+            
+            <a href="/" class = "btn btn-danger btn-sm">Regresar</a>
+        </div>
+    </form>
+</div>
