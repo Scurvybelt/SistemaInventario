@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgregarProductoComponent } from './agregar-producto/agregar-producto.component';
 import { FormsModule } from '@angular/forms';
 import { EditarProductoComponent } from './editar-producto/editar-producto.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { EditarProductoComponent } from './editar-producto/editar-producto.compo
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule, // required animations module
     
     
   ],

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-editar-producto',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditarProductoComponent {
   producto: Producto = new Producto(); 
   id: number;
-  constructor(private productoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router ){
+  constructor(private toastr: ToastrService,private productoServicio: ProductoService, private ruta: ActivatedRoute, private enrutador: Router ){
 
   }
   ngOnInit(){
@@ -36,6 +37,8 @@ export class EditarProductoComponent {
       {
         next: (datos) => {
           this.irProductoLista();
+          this.showSuccess();
+
         },error: (error: any) => {
           console.log(error);
         }
@@ -44,6 +47,10 @@ export class EditarProductoComponent {
   }
   irProductoLista(){
     this.enrutador.navigate(['/productos']);
+  }
+
+  showSuccess() {
+    this.toastr.success('Producto Actualizado', 'Toastr fun!');
   }
 
 
